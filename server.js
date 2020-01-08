@@ -26,21 +26,21 @@ app.use(function validateBearerToken(req, res, next) {
     let resultsFiltered = MOVIEDEX;
 
     if (genre){
-            resultsFiltered = MOVIEDEX.filter(movie =>
+            resultsFiltered = resultsFiltered.filter(movie =>
                                 movie.genre
                                     .toLowerCase()
                                     .includes(genre.toLowerCase()));
     }
     
     if (country){
-        resultsFiltered = MOVIEDEX.filter(movie =>
+        resultsFiltered = resultsFiltered.filter(movie =>
                             movie.country
                                 .toLowerCase()
                                 .includes(country.toLowerCase()));
 }
     
     if (votes){
-        resultsFiltered = MOVIEDEX.filter(movie =>
+        resultsFiltered = resultsFiltered.filter(movie =>
                            {return movie.avg_vote >= Number(votes)});
     }
     
