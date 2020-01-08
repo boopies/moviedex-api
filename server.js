@@ -41,7 +41,7 @@ app.use(function validateBearerToken(req, res, next) {
     
     if (avg_vote){
         resultsFiltered = resultsFiltered.filter(movie =>
-                           {return movie.avg_vote >= Number(avg_vote)});
+                           Number(movie.avg_vote) >= Number(avg_vote));
     }
     
     res.json(resultsFiltered)
